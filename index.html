@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><!--for using font awesom library , for cross sign-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Recipe App</h1>
+            <div id="form">
+                <form id="recipeForm">
+                    <input type="text" id="recipeSearch" placeholder="Search for Recipes...">  <input type="submit" value="search" id="searchBtn">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="recipeContainer">
+           <h1>Search your Favourite Recipes</h1>
+        </div>
+        <div  id="recipePopup" > <!-- denotes the popup opened on clicking view recipe. but initially we wand it to be hidden as it should only display when the view recipe button is clicked. -->
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

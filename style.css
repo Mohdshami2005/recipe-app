@@ -1,0 +1,200 @@
+body{ /*as body by default gives a margin of 8px.*/
+            margin:0px;
+        }
+        body{
+            background-color:#2b1d0f;
+        }
+        header{
+            background-color:#212121;
+            width:100%;
+            /* So that even while scrolling headed will always appear at the top */
+            margin:0px;
+            min-height:100px;
+        }
+        nav{
+            padding:20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        nav h1{ /*i.e only for h1 tag inside the nav tag */
+            color:white;
+            letter-spacing: 2px; /*space between two letters in heading tag */
+            text-transform:uppercase;
+        }
+        nav form{
+            display:flex;
+            align-items:center;
+            font-size:30px;
+        }
+        #recipeSearch{
+            font-size:20px;
+            border-radius: 5px 0px 0px 5px; /* to left then top right then bottom right then bottom left*/
+        }
+        #searchBtn{
+            margin-left:10px;
+            background-color:rgb(246, 166, 16);
+            font-size:20px;
+            border-radius:0 5px 5px 0;
+            transition: all 0.25s ease-in-out; /* so now all the transition that we applied here only hover one so on hovering background color will change but in 0.5s not immediately */
+        }
+        #searchBtn:hover{
+            cursor:pointer;
+            background-color:rgb(241, 183, 76);
+        }
+        #recipeContainer{
+            color:white;
+        }
+        .dish_divs{
+            color:white;
+        }
+        /*Responsive code*/
+        @media screen and (max-width:600px){ /*We used display: flex and justify-content: space-between on the nav so that
+            the heading ("Recipe App") and the search form appear side by side on larger screens.
+            
+            However, on mobile phones, the screen width is much smaller. There may not be
+            enough horizontal space to display both the heading and the form on the same line,
+            which can make the layout look cramped or cause elements to overflow.
+            
+            To make the website responsive, we use a media query with max-width: 600px.
+            This means the following CSS will only be applied when the screen width is
+            600px or less, which covers most mobile phones.
+            
+            Inside this media query, we change the layout so that the heading appears
+            at the top and the search form moves below it. This gives each element
+            enough space and makes the webpage easier to use on smaller screens. */
+            nav{
+                display:flex;
+                flex-direction:column;
+                align-items:center; /*so that both heading and form appears in center of the page and one below other*/
+                justify-content:center; /*also becomes center in the vertical direction*/
+            }
+             
+        }
+        main #recipeContainer{
+            text-align:center;
+        }
+        #recipeContainer{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); /* so now as we insert the dish_divs in the recipeContainer the divs should be minimum 250px and can max go upto 1fr in width and also according to it the suitable no of divs will automatically arranged in the recipeContainer*/
+        gap:20px;
+        width:80%;
+        margin:auto;
+        place-items:center;
+        /* similar to -> align-items: center;  justify-items: center;*/
+        /*we need to do margin auto as now recipeContainer is taking just 80% width of the main tag's so it will now occupy just the left 80% of the dish_div and acc to it, img will align in center 
+            but we want to align it center according to the middle 80% , so we make margin: auto The browser thinks:
+
+            "The container is 800px wide.
+            The page is 1000px wide.
+            That leaves 200px of free space."
+
+            Now it distributes the remaining space equally. 
+            and image is centered acc to the middle 80%. */
+        
+        /*So what does auto-fit actually do?
+
+        Think of the browser asking itself:
+        
+        How many columns can I fit?
+        
+        Can I fit another one?
+        
+        Yes → Add it.
+        
+        No → Stop.
+        
+        That's all auto-fit does.
+        
+        It automatically chooses the number of columns based on the available width.*/
+        }
+        .dish_divs{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            background-color:white;
+            color:black;
+            padding-top:20px;
+            border-radius:12px;
+            max-width:400px; /* as if only 1 dish is available for the meal then it will cover the whole width as we used grid there.*/
+            transition: transform 0.5s ease-in; /* so that on hovering size increases slowly*/
+            min-height:500px;
+        }
+        .dish_divs:hover{
+            transform: scale(1.05); /* so it will become 1.05 times its original size on hovering*/
+            cursor:pointer;
+        }
+        .dish_divs h1,.dish_divs h2{
+            margin:8px 0px;
+        }
+        .dish_images{
+            width:80%;
+            margin:auto; /*we need to do margin auto as now image is taking just 80% width of the dish_div so it will now occupy just the left 80% of the dish_div and acc to it, img will align in center 
+            but we want to align it center according to the middle 80% , so we make margin: auto The browser thinks:
+
+            "The container is 800px wide.
+            The page is 1000px wide.
+            That leaves 200px of free space."
+
+            Now it distributes the remaining space equally. 
+            and recipeContainer is centered acc to the middle 80%. */
+        }
+
+        #recipeBtn{
+            margin-top:auto;
+            margin-bottom:15px;
+            background-color:rgb(246, 166, 16);
+        }
+        #recipeBtn:hover{
+            background-color:rgb(241, 183, 76);
+            cursor:pointer;
+        }
+        #recipePopup{
+            display:none; /*as we display it only when view recipe is clicked. so otherwise it is hidden*/
+            top:50%; /*so vertically at center*/
+            left:50%;/*so horizontally centered*/
+
+            /*but currently the top left point of the recipePopup is at the center of the page but we want the div itself to be the center of the page so we do ->*/
+            transform: translate(-50%,-50%); /*or translateX(-50%) ; translateY(-50%);/
+            /* Move the popup left by 50% of its own width
+            and up by 50% of its own height.
+            This perfectly centers the popup both horizontally and vertically. */
+            /* Move left by 50% of the popup's own width.
+            Move up by 50% of the popup's own height. */
+
+            /*so now popup box is perfectly at the center of the page.*/
+            position:fixed; /*so that it stays at the midlle of the page even when scrolled.*/
+            background-color:#694c2f;
+            height:75%;
+            width:60%;
+            padding:20px;  /*keeping everything away from the boundary */
+            box-sizing:border-box;
+
+            overflow-y:auto; /*so now if text can't fit in the popup div then instead of text coming out of the popup it will come inside it while scrolling*/
+        }
+        #recipeCloseBtn{
+            top:5px;
+            right:5px;
+            position:absolute; /* so relative to its parent i.e popup div it is placed in the to right corner 5px from top and right*/
+            background-color:rgb(246, 166, 16);
+            height:40px;
+            width:40px;
+            font-size:20px;
+            display:flex; /*just tpo bring cross in center.*/
+            align-items: center;
+            justify-content: center;
+            border-radius:5px;
+
+        }
+        #recipeCloseBtn:hover{
+            cursor:pointer;
+            background-color:rgb(241, 183, 76);
+        }
+        #recipePopup h1{
+            text-align:center;
+        }
+        #recipePopup p,#recipePopup ul{
+            font-size:20px;
+            color:white;
+        }
