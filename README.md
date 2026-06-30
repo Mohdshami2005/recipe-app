@@ -7,7 +7,7 @@ Search for any recipe, view its ingredients and cooking instructions,
 or watch its YouTube recipe video.
 </p>
 
-<h2>Features</h2>
+<h2>📌 Features</h2>
 
 <ul>
     <li>Search recipes by name.</li>
@@ -45,3 +45,16 @@ to fetch recipe information including:
     <li>Cooking Instructions</li>
     <li>YouTube Tutorial Link</li>
 </ul>
+
+<h2>⚙️ How It Works</h2>
+
+<ol>
+    <li>Enter the name of a recipe in the search box.</li>
+    <li>Click the <b>Search</b> button.</li>
+    <li>The application sends a request to <b>TheMealDB API</b> using the Fetch API.</li>
+    <li>Matching recipes are displayed as responsive recipe cards.</li>
+    <li>Click <b>View Recipe</b> to see the ingredients and cooking instructions in a popup.</li>
+    <li>Click anywhere on a recipe card (except the button) to watch its YouTube tutorial in a new browser tab.</li>
+</ol>
+
+<h3>#Live Demo Link :- https://mohdshami2005.github.io/recipe-app/ </h3>
